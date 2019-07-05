@@ -9,44 +9,116 @@
 import UIKit
 
 class CountdowmTimerView: UIView {
+    private var eventTimeSeconds:Int!
+    private var timer:Timer?
     
-    var seconds:Int!
-    var timer:Timer?
+    private let titleLabel:UILabel = {
+        let label = UILabel()
+        label.text = "NEXT LAUNCH IN..."
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
-    private let textView:UILabel = {
-        let textView = UILabel()
-        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        textView.backgroundColor = .clear
-        textView.textAlignment = .center
-        textView.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
-        textView.textColor = .darkGray
-        return textView
+    private let timerLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 44, weight: UIFont.Weight.semibold)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let days:UILabel = {
+        let label = UILabel()
+        label.text = "DAYS"
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let hours:UILabel = {
+        let label = UILabel()
+        label.text = "HOURS"
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let minutes:UILabel = {
+        let label = UILabel()
+        label.text = "MINUTES"
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let seconds:UILabel = {
+        let label = UILabel()
+        label.text = "SECONDS"
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     convenience init(){
         self.init( frame:.zero)
-        textView.frame = bounds
-        addSubview(textView)
+        setLayout()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textView.frame = bounds
-        addSubview(textView)
+        setLayout()
+    }
+    
+    func setLayout(){
+        addSubview(titleLabel)
+        addSubview(timerLabel)
+        addSubview(days)
+        addSubview(hours)
+        addSubview(minutes)
+        addSubview(seconds)
+        
+        let guide = safeAreaLayoutGuide
+        
+        titleLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
+        
+        timerLabel.widthAnchor.constraint(equalToConstant: 260).isActive = true
+        timerLabel.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
+        timerLabel.centerYAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
+        
+        days.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
+        days.leadingAnchor.constraint(equalTo: timerLabel.leadingAnchor, constant: 16).isActive = true
+        
+        hours.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
+        hours.leadingAnchor.constraint(equalTo: days.trailingAnchor, constant: 26).isActive = true
+        
+        minutes.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
+        minutes.leadingAnchor.constraint(equalTo: hours.trailingAnchor, constant: 24).isActive = true
+        
+        seconds.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
+        seconds.leadingAnchor.constraint(equalTo: minutes.trailingAnchor, constant: 16).isActive = true
     }
     
     func setTime(_ seconds:Int){
-        self.seconds = seconds
-        textView.text = getFormattedString()
+        self.eventTimeSeconds = seconds
+        timerLabel.text = getFormattedString()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerTick(_:)), userInfo: nil, repeats: true)
     }
     
     @objc func onTimerTick(_ sender:Timer){
-        textView.text = getFormattedString()
+        timerLabel.text = getFormattedString()
     }
     
     func getFormattedString() -> String{
-        let current = seconds - Int(Date().timeIntervalSince1970)
+        let current = eventTimeSeconds - Int(Date().timeIntervalSince1970)
         if current <= 0 {
             timer?.invalidate()
             timer = nil
