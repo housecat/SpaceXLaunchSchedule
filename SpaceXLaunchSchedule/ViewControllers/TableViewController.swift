@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewController: UIViewController {
     
+    var launches:[LaunchElement] = []
+    
     lazy var headerView:UIView = {
         let view = UIView()
         view.backgroundColor = .red
@@ -44,6 +46,13 @@ class TableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        APISpaceX.shared.getUpcomingLaunces { [weak self] launches, error in
+            guard let launches = launches, error == nil else { return }
+            self?.launches = launches
+            self?.launches.sort(by: {$0.launchDate < $1.launchDate})
+            self?.tableView.reloadData()
+        }
+        
         setLayout()
     }
     
@@ -56,11 +65,12 @@ class TableViewController: UIViewController {
 
 extension TableViewController:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return launches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = launches[indexPath.row].missionName
         return cell
     }
     

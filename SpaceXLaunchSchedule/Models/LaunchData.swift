@@ -9,7 +9,7 @@ struct LaunchElement: Codable {
     let missionID: [String]
     let launchYear: String
     let launchDateUnix: Int
-    let launchDateUTC: String
+
     let launchDateLocal: String
     let isTentative: Bool
     let tentativeMaxPrecision: String
@@ -17,7 +17,16 @@ struct LaunchElement: Codable {
     let rocket: Rocket
     let details: String?
     let upcoming: Bool
+    let launchDateUTC: String
     
+    var launchDate:Date!{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from: launchDateUTC)
+        return date
+    }
+
     enum CodingKeys: String, CodingKey {
         case flightNumber = "flight_number"
         case missionName = "mission_name"
