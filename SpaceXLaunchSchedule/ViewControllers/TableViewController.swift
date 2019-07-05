@@ -12,8 +12,8 @@ class TableViewController: UIViewController {
     
     var launches:[LaunchElement] = []
     
-    lazy var headerView:CountdowmTimerView = {
-        let view = CountdowmTimerView()
+    lazy var headerView:CountdownTimerView = {
+        let view = CountdownTimerView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -50,7 +50,7 @@ class TableViewController: UIViewController {
             self?.launches = launches
             self?.launches.sort(by: {$0.launchDateUnix < $1.launchDateUnix})
             self?.tableView.reloadData()
-            self?.headerView.setTime(launches.first!.launchDateUnix)
+//            self?.headerView.setTime(launches.first!.launchDateUnix)
         }
         
         setLayout()
@@ -74,3 +74,16 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate{
         return cell
     }
 }
+
+
+class LaunchCell:UITableViewCell{
+    static let reuseIdentifier:String = "LaunchCell"
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
