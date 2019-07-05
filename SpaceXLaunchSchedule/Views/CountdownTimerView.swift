@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountdowmTimerView: UIView {
+class CountdownTimerView: UIView {
     private var eventTimeSeconds:Int!
     private var timer:Timer?
     
@@ -70,6 +70,11 @@ class CountdowmTimerView: UIView {
     convenience init(){
         self.init( frame:.zero)
         setLayout()
+        
+        APISpaceX.shared.nextMission { [weak self] launch, error in
+            guard let strongSelf = self, let launch = launch, error == nil  else { return }
+            strongSelf.setTime(launch.launchDateUnix)
+        }
     }
     
     override init(frame: CGRect) {
@@ -86,7 +91,6 @@ class CountdowmTimerView: UIView {
         addSubview(seconds)
         
         let guide = safeAreaLayoutGuide
-        
         titleLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
         
@@ -95,16 +99,16 @@ class CountdowmTimerView: UIView {
         timerLabel.centerYAnchor.constraint(equalTo: guide.centerYAnchor).isActive = true
         
         days.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
-        days.leadingAnchor.constraint(equalTo: timerLabel.leadingAnchor, constant: 16).isActive = true
+        days.leadingAnchor.constraint(equalTo: timerLabel.leadingAnchor, constant: 15).isActive = true
         
         hours.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
         hours.leadingAnchor.constraint(equalTo: days.trailingAnchor, constant: 26).isActive = true
         
         minutes.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
-        minutes.leadingAnchor.constraint(equalTo: hours.trailingAnchor, constant: 24).isActive = true
+        minutes.leadingAnchor.constraint(equalTo: hours.trailingAnchor, constant: 26).isActive = true
         
         seconds.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
-        seconds.leadingAnchor.constraint(equalTo: minutes.trailingAnchor, constant: 16).isActive = true
+        seconds.leadingAnchor.constraint(equalTo: minutes.trailingAnchor, constant: 12).isActive = true
     }
     
     func setTime(_ seconds:Int){
@@ -138,13 +142,4 @@ class CountdowmTimerView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
