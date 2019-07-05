@@ -12,9 +12,8 @@ class TableViewController: UIViewController {
     
     var launches:[LaunchElement] = []
     
-    lazy var headerView:UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    lazy var headerView:CountdowmTimerView = {
+        let view = CountdowmTimerView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -49,8 +48,9 @@ class TableViewController: UIViewController {
         APISpaceX.shared.getUpcomingLaunces { [weak self] launches, error in
             guard let launches = launches, error == nil else { return }
             self?.launches = launches
-            self?.launches.sort(by: {$0.launchDate < $1.launchDate})
+            self?.launches.sort(by: {$0.launchDateUnix < $1.launchDateUnix})
             self?.tableView.reloadData()
+            self?.headerView.setTime(launches.first!.launchDateUnix)
         }
         
         setLayout()
@@ -73,7 +73,4 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate{
         cell.textLabel?.text = launches[indexPath.row].missionName
         return cell
     }
-    
-    
 }
-

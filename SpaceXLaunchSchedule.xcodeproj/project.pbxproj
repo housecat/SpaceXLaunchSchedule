@@ -14,6 +14,7 @@
 		CDDC371622CFCCD900780EA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */; };
 		CDDC372122CFD25F00780EA7 /* APISpaceX.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC372022CFD25F00780EA7 /* APISpaceX.swift */; };
 		CDDC372522CFD57600780EA7 /* LaunchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC372422CFD57600780EA7 /* LaunchData.swift */; };
+		CDDC372922CFFB0E00780EA7 /* CountdowmTImerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC372822CFFB0E00780EA7 /* CountdowmTImerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CDDC371722CFCCD900780EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDDC372022CFD25F00780EA7 /* APISpaceX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISpaceX.swift; sourceTree = "<group>"; };
 		CDDC372422CFD57600780EA7 /* LaunchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchData.swift; sourceTree = "<group>"; };
+		CDDC372822CFFB0E00780EA7 /* CountdowmTImerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdowmTImerView.swift; sourceTree = "<group>"; };
 		EED23EADCC7C5250A5A426F8 /* Pods-SpaceXLaunchSchedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchSchedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceXLaunchSchedule/Pods-SpaceXLaunchSchedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 		CDDC370A22CFCCD800780EA7 /* SpaceXLaunchSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				CDDC372722CFFAF200780EA7 /* Views */,
 				CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */,
 				CDDC372622CFF3BB00780EA7 /* ViewControllers */,
 				CDDC372322CFD50400780EA7 /* API */,
@@ -113,6 +116,14 @@
 				CDDC370D22CFCCD800780EA7 /* TableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CDDC372722CFFAF200780EA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC372822CFFB0E00780EA7 /* CountdowmTImerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDC372922CFFB0E00780EA7 /* CountdowmTImerView.swift in Sources */,
 				CDDC372522CFD57600780EA7 /* LaunchData.swift in Sources */,
 				CDDC370E22CFCCD800780EA7 /* TableViewController.swift in Sources */,
 				CDDC372122CFD25F00780EA7 /* APISpaceX.swift in Sources */,
