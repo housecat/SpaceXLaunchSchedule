@@ -28,8 +28,9 @@ class TableViewController: UIViewController {
     
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .blue
+        tableView.backgroundColor = .white
         tableView.rowHeight = UITableView.automaticDimension
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.keyboardDismissMode = .onDrag
@@ -40,9 +41,29 @@ class TableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        setLayout()
+    }
+    
+    func setLayout(){
         stackView.frame = view.bounds
         view.addSubview(stackView)
         headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
     }
+}
+
+extension TableViewController:UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        return cell
+    }
+    
+    
 }
 
