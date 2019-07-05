@@ -12,9 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        APISpaceX.shared.getUpcomingLaunces { launches, error in
+            
+        }
     }
-
-
 }
 
