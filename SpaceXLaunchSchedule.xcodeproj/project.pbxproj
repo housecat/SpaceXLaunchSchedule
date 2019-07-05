@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8985CC9018F4CBAEB56C2BA2 /* Pods_SpaceXLaunchSchedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A24F9E1E53D8F976AC8F64 /* Pods_SpaceXLaunchSchedule.framework */; };
 		CDDC370C22CFCCD800780EA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */; };
-		CDDC370E22CFCCD800780EA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC370D22CFCCD800780EA7 /* ViewController.swift */; };
+		CDDC370E22CFCCD800780EA7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC370D22CFCCD800780EA7 /* TableViewController.swift */; };
 		CDDC371322CFCCD900780EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDC371222CFCCD900780EA7 /* Assets.xcassets */; };
 		CDDC371622CFCCD900780EA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,7 +19,7 @@
 		C5A24F9E1E53D8F976AC8F64 /* Pods_SpaceXLaunchSchedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceXLaunchSchedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC370822CFCCD800780EA7 /* SpaceXLaunchSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunchSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDDC370D22CFCCD800780EA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDDC370D22CFCCD800780EA7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CDDC371222CFCCD900780EA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDDC371522CFCCD900780EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDC371722CFCCD900780EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,12 +77,20 @@
 			isa = PBXGroup;
 			children = (
 				CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */,
-				CDDC370D22CFCCD800780EA7 /* ViewController.swift */,
+				CDDC371F22CFD0D400780EA7 /* ViewControllers */,
 				CDDC371222CFCCD900780EA7 /* Assets.xcassets */,
 				CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */,
 				CDDC371722CFCCD900780EA7 /* Info.plist */,
 			);
 			path = SpaceXLaunchSchedule;
+			sourceTree = "<group>";
+		};
+		CDDC371F22CFD0D400780EA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC370D22CFCCD800780EA7 /* TableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDDC370E22CFCCD800780EA7 /* ViewController.swift in Sources */,
+				CDDC370E22CFCCD800780EA7 /* TableViewController.swift in Sources */,
 				CDDC370C22CFCCD800780EA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
