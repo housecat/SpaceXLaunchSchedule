@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8985CC9018F4CBAEB56C2BA2 /* Pods_SpaceXLaunchSchedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A24F9E1E53D8F976AC8F64 /* Pods_SpaceXLaunchSchedule.framework */; };
 		CDDC370C22CFCCD800780EA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */; };
 		CDDC370E22CFCCD800780EA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC370D22CFCCD800780EA7 /* ViewController.swift */; };
-		CDDC371122CFCCD800780EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDC370F22CFCCD800780EA7 /* Main.storyboard */; };
 		CDDC371322CFCCD900780EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDC371222CFCCD900780EA7 /* Assets.xcassets */; };
 		CDDC371622CFCCD900780EA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5317189EBE52D6EAD289C98E /* Pods-SpaceXLaunchSchedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchSchedule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceXLaunchSchedule/Pods-SpaceXLaunchSchedule.debug.xcconfig"; sourceTree = "<group>"; };
+		C5A24F9E1E53D8F976AC8F64 /* Pods_SpaceXLaunchSchedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceXLaunchSchedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC370822CFCCD800780EA7 /* SpaceXLaunchSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunchSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDDC370D22CFCCD800780EA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CDDC371022CFCCD800780EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDDC371222CFCCD900780EA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDDC371522CFCCD900780EA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDC371722CFCCD900780EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EED23EADCC7C5250A5A426F8 /* Pods-SpaceXLaunchSchedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXLaunchSchedule.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpaceXLaunchSchedule/Pods-SpaceXLaunchSchedule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +31,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8985CC9018F4CBAEB56C2BA2 /* Pods_SpaceXLaunchSchedule.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68350B74A603FDE3AFB99E8B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5317189EBE52D6EAD289C98E /* Pods-SpaceXLaunchSchedule.debug.xcconfig */,
+				EED23EADCC7C5250A5A426F8 /* Pods-SpaceXLaunchSchedule.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A2C63D966E1D537328A54FD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5A24F9E1E53D8F976AC8F64 /* Pods_SpaceXLaunchSchedule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CDDC36FF22CFCCD800780EA7 = {
 			isa = PBXGroup;
 			children = (
 				CDDC370A22CFCCD800780EA7 /* SpaceXLaunchSchedule */,
 				CDDC370922CFCCD800780EA7 /* Products */,
+				68350B74A603FDE3AFB99E8B /* Pods */,
+				A2C63D966E1D537328A54FD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,7 +78,6 @@
 			children = (
 				CDDC370B22CFCCD800780EA7 /* AppDelegate.swift */,
 				CDDC370D22CFCCD800780EA7 /* ViewController.swift */,
-				CDDC370F22CFCCD800780EA7 /* Main.storyboard */,
 				CDDC371222CFCCD900780EA7 /* Assets.xcassets */,
 				CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */,
 				CDDC371722CFCCD900780EA7 /* Info.plist */,
@@ -71,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDDC371A22CFCCD900780EA7 /* Build configuration list for PBXNativeTarget "SpaceXLaunchSchedule" */;
 			buildPhases = (
+				7AE380DDA1AE3509F8DDD4C1 /* [CP] Check Pods Manifest.lock */,
 				CDDC370422CFCCD800780EA7 /* Sources */,
 				CDDC370522CFCCD800780EA7 /* Frameworks */,
 				CDDC370622CFCCD800780EA7 /* Resources */,
+				B60FF61FA3271051068BCC58 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,11 +147,49 @@
 			files = (
 				CDDC371622CFCCD900780EA7 /* LaunchScreen.storyboard in Resources */,
 				CDDC371322CFCCD900780EA7 /* Assets.xcassets in Resources */,
-				CDDC371122CFCCD800780EA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7AE380DDA1AE3509F8DDD4C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceXLaunchSchedule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B60FF61FA3271051068BCC58 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpaceXLaunchSchedule/Pods-SpaceXLaunchSchedule-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpaceXLaunchSchedule/Pods-SpaceXLaunchSchedule-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDDC370422CFCCD800780EA7 /* Sources */ = {
@@ -143,14 +204,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CDDC370F22CFCCD800780EA7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CDDC371022CFCCD800780EA7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CDDC371422CFCCD900780EA7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,6 +333,7 @@
 		};
 		CDDC371B22CFCCD900780EA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5317189EBE52D6EAD289C98E /* Pods-SpaceXLaunchSchedule.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +352,7 @@
 		};
 		CDDC371C22CFCCD900780EA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED23EADCC7C5250A5A426F8 /* Pods-SpaceXLaunchSchedule.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
