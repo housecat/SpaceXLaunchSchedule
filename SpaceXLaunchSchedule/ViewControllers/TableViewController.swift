@@ -36,7 +36,7 @@ class TableViewController: UIViewController {
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.keyboardDismissMode = .onDrag
         tableView.scrollsToTop = true
-//        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
@@ -72,10 +72,6 @@ extension TableViewController:UITableViewDataSource, UITableViewDelegate{
         cell.setData(launches[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
 }
 
 
@@ -94,38 +90,78 @@ class LaunchCell:UITableViewCell{
                 let secondStageReused = launch.rocket.secondStage.payloads.first?.reused{
                 recycledPartsUsed = firstStageReused || secondStageReused
             }
+ 
+            reuseLabel.text = recycledPartsUsed ? "reused" : "new"
         }
     }
+    
+    lazy var firstLineStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [ nameLabel, idLabel])
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 6
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
+    lazy var secondLineStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [ rocketNameLabel, reuseLabel])
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 6
+        stackView.axis = .horizontal
+        return stackView
+    }()
+
+    lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [ firstLineStackView, secondLineStackView, timeLabel])
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 6
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     private let nameLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
+        label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.horizontal)
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         label.textColor = .darkGray
+        return label
+    }()
+    
+    private let idLabel:UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let rocketNameLabel:UILabel = {
+        let label = UILabel()
+        label.textColor = .darkGray
+        label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.horizontal)
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let reuseLabel:UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.light)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let timeLabel:UILabel = {
         let label = UILabel()
         label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let idLabel:UILabel = {
-        let label = UILabel()
-        label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let rocketNameLabel:UILabel = {
-        let label = UILabel()
-        label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
+        label.textAlignment = .right
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -136,22 +172,13 @@ class LaunchCell:UITableViewCell{
     }
     
     func setLayout(){
-        contentView.addSubview(idLabel)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(timeLabel)
-        contentView.addSubview(rocketNameLabel)
         
-        idLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        idLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: idLabel.trailingAnchor).isActive = true
-
-        rocketNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
-        rocketNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        contentView.addSubview(mainStackView)
         
-        timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
     }
     
     func setData(_ launch:LaunchElement){

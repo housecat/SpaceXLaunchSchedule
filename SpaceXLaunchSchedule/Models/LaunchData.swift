@@ -29,8 +29,8 @@ struct LaunchElement: Codable {
     
     var humanReadableDate:String!{
         let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.long
-        formatter.timeStyle = DateFormatter.Style.medium
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.short
         let string = formatter.string(from: launchDate)
         return string
     }
