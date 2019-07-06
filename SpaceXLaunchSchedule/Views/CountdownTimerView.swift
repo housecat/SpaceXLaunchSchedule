@@ -105,10 +105,10 @@ class CountdownTimerView: UIView {
         hours.leadingAnchor.constraint(equalTo: days.trailingAnchor, constant: 26).isActive = true
         
         minutes.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
-        minutes.leadingAnchor.constraint(equalTo: hours.trailingAnchor, constant: 26).isActive = true
+        minutes.leadingAnchor.constraint(equalTo: hours.trailingAnchor, constant: 18).isActive = true
         
         seconds.topAnchor.constraint(equalTo: timerLabel.bottomAnchor).isActive = true
-        seconds.leadingAnchor.constraint(equalTo: minutes.trailingAnchor, constant: 12).isActive = true
+        seconds.leadingAnchor.constraint(equalTo: minutes.trailingAnchor, constant: 14).isActive = true
     }
     
     func setTime(_ seconds:Int){
