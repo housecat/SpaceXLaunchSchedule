@@ -26,6 +26,14 @@ struct LaunchElement: Codable {
         let date = dateFormatter.date(from: launchDateUTC)
         return date
     }
+    
+    var humanReadableDate:String!{
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.long
+        formatter.timeStyle = DateFormatter.Style.medium
+        let string = formatter.string(from: launchDate)
+        return string
+    }
 
     enum CodingKeys: String, CodingKey {
         case flightNumber = "flight_number"
